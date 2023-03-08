@@ -9,12 +9,15 @@
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/outputs.h>
 
-#define OUT_BLE 0
 #define Undo   LC(Z)
 #define Cut    LC(X)
 #define Copy   LC(C)
 #define Paste  LC(V)
 #define Redo   LC(A)
+
+&out {
+  OUT_USB;
+};
 
 / {     
         keymap {
