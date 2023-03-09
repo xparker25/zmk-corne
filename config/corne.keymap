@@ -28,12 +28,12 @@
 // | ESC |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U   |  I  |  O  |  P  | BKSP |
 // | TAB |  A  |  S  |  D  |  F  |  G  |   |  H  |  J   |  K  |  L  |  ;  |  '   |
 // | SHFT|  Z  |  X  |  C  |  V  |  B  |   |  N  |  M   |  ,  |  .  |  /  | ENT  |
-//                 | CTRL | LYR1 | SPC |   | SPC | LYR2  | ALT |
+//                 | CTRL | LYR1 | ENT |   | SPC | LYR2  | ALT |
                         bindings = <
    &kp ESC   &kp Q &kp W &kp E &kp R &kp T   &kp Y &kp U  &kp I     &kp O   &kp P    &kp BSPC
    &kp TAB   &kp A &kp S &kp D &kp F &kp G   &kp H &kp J  &kp K     &kp L   &kp SEMI &kp SQT
    &mt LSHFT CAPS &kp Z &kp X &kp C &kp V &kp B   &kp N &kp M  &kp COMMA &kp DOT &kp FSLH &kp RET
-                  &kp LCTRL &to 1 &kp SPACE   &kp SPACE &to 2 &kp RALT
+                  &kp LCTRL &to 1 &kp RET   &kp SPACE &to 2 &kp RALT
                         >;
                 };
                 lower_layer {
@@ -54,13 +54,13 @@
 // -----------------------------------------------------------------------------------------
 // |  ESC |  !  |  @  |  #  |  $  |  %  |   |  ^  |  &  |  *  |  (  |  )  | BKSP |
 // | TAB  |     |     |     |     |     |   |  -  |  =  |  [  |  ]  |  \  |  `   |
-// | SHFT |     |     |     |     |     |   |  _  |  +  |  {  |  }  | "|" |  ~   |
-//                   | CTRL| LYR1 | SPC |   | SPC |  LYR0 | ALT |
+// | SHFT |     |     |     | GUI |  G  |   |  _  |  +  |  {  |  }  | "|" |  ~   |
+//                   | CTRL| LYR1 | ENT |   | SPC |  LYR0 | ALT |
                         bindings = <
    &kp  ESC  &kp EXCL &kp AT &kp HASH &kp DLLR &kp PRCNT   &kp CARET &kp AMPS  &kp KP_MULTIPLY &kp LPAR &kp RPAR &kp BSPC
-   &kp TAB &trans   &trans &trans   &trans   &trans      &kp MINUS &kp EQUAL &kp LBKT        &kp RBKT &kp BSLH &kp GRAVE
-   &mt LSHFT CAPS &trans   &trans &trans   &trans   &trans      &kp UNDER &kp PLUS  &kp LBRC        &kp RBRC &kp PIPE &kp TILDE
-                    	     &kp LCTRL &to 1   &kp SPC   &kp SPACE   &to 0    &kp RALT
+   &kp TAB   &trans   &trans &trans   &trans   &trans      &kp MINUS &kp EQUAL &kp LBKT        &kp RBKT &kp BSLH &kp GRAVE
+   &kp LSHFT &trans   &trans &trans   &kp GUI  &kp G      &kp UNDER &kp PLUS  &kp LBRC        &kp RBRC &kp PIPE &kp TILDE
+                    	     &kp LCTRL &to 1   &kp RET   &kp SPACE   &to 0    &kp RALT
                         >;
                 };
         };
