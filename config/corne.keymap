@@ -65,7 +65,7 @@
                 };
         };
         
-\ {
+
     combos {
         compatible = "zmk,combos";
         combo_copy {
