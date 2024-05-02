@@ -40,12 +40,12 @@
 // -----------------------------------------------------------------------------------------
 // |  ESC |  *  |  7  |  8  |  9  |  +  |   | BT1 |     |  UP |     |     | BSPC |
 // | DEL  |  /  |  4  |  5  |  6  |  -  |   | BTC | LFT |DOWN | RGT |     |      |
-// |   =  |  0  |  1  |  2  |  3  |  .  |   | BT0 | BT1 | BT2 | BT3 | BT4 |  ENT |
+// |   =  |  0  |  1  |  2  |  3  |  .  |   |  F1 |  F2 |  F3 |  F4 |  F5 |  ENT |
 //                   | CTRL| LYR0 | ENT |   | SPC | LYR2 | ALT |
                         bindings = <
    &kp ESC         &kp KP_MULTIPLY  &kp N7   &kp N8    &kp N9    &kp PLUS    &bt BT_NXT     &trans     &kp UP      &trans        &trans     &kp BSPC
    &kp DEL         &kp FSLH         &kp N4   &kp N5    &kp N6    &kp MINUS   &bt BT_CLR     &kp LEFT   &kp DOWN    &kp RIGHT     &trans     &trans
-   &kp EQUAL       &kp N0           &kp N1   &kp N2    &kp N3    &kp DOT     &bt BT_SEL 1   &trans     &trans      &trans        &trans     &kp RET
+   &kp EQUAL       &kp N0           &kp N1   &kp N2    &kp N3    &kp DOT     &kp F1         &kp F2     &kp F3      &kp F4        &kp F5     &kp RET
                           	           &kp LCTRL  &to 0    &kp RET        &kp SPACE  &to 2   &kp RALT
                         >;
                 };
