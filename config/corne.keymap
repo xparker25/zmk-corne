@@ -7,17 +7,8 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
-#include <dt-bindings/zmk/outputs.h>
+#include <dt-bindings/zmk/ext_power.h>
 
-#define Undo   LC(Z)
-#define Cut    LC(X)
-#define Copy   LC(C)
-#define Paste  LC(V)
-#define Redo   LC(A)
-
-&out {
-  OUT_USB;
-};
 
 / {     
         keymap {
@@ -27,40 +18,40 @@
 // -----------------------------------------------------------------------------------------
 // | ESC |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U   |  I  |  O  |  P  | BSPC |
 // | TAB |  A  |  S  |  D  |  F  |  G  |   |  H  |  J   |  K  |  L  |  ;  |  '   |
-// | SHFT|  Z  |  X  |  C  |  V  |  B  |   |  N  |  M   |  ,  |  .  |  /  | ENT  |
+// | SHFT|  Z  |  X  |  C  |  V  |  B  |   |  N  |  M   |  ,  |  .  |  /  | GUI  |
 //                 | CTRL | LYR1 | ENT |   | SPC | LYR2  | ALT |
                         bindings = <
-   &kp ESC   &kp Q &kp W &kp E &kp R &kp T   &kp Y &kp U  &kp I     &kp O   &kp P    &kp BSPC
-   &kp TAB   &kp A &kp S &kp D &kp F &kp G   &kp H &kp J  &kp K     &kp L   &kp SEMI &kp SQT
-   &mt LSHFT CAPS &kp Z &kp X &kp C &kp V &kp B   &kp N &kp M  &kp COMMA &kp DOT &kp FSLH &kp RET
-                  &kp LCTRL &to 1 &kp RET   &kp SPACE &to 2 &kp RALT
+   &kp ESC        &kp Q   &kp W   &kp E     &kp R  &kp T     &kp Y     &kp U  &kp I       &kp O     &kp P       &kp BSPC
+   &kp TAB        &kp A   &kp S   &kp D     &kp F  &kp G     &kp H     &kp J  &kp K       &kp L     &kp SEMI    &kp SQT
+   &mt LSHFT CAPS &kp Z   &kp X   &kp C     &kp V  &kp B     &kp N     &kp M  &kp COMMA   &kp DOT   &kp FSLH    &kp LGUI
+                                  &kp LCTRL &to 1  &kp RET   &kp SPACE &to 2 &kp RALT
                         >;
                 };
                 lower_layer {
 // -----------------------------------------------------------------------------------------
-// |  ESC |  *  |  7  |  8  |  9  |  +  |   | BT1 |     |  UP |     |     | BSPC |
-// | DEL  |  /  |  4  |  5  |  6  |  -  |   | BTC | LFT |DOWN | RGT |     |      |
-// |   =  |  0  |  1  |  2  |  3  |  .  |   |  F1 |  F2 |  F3 |  F4 |  F5 |  ENT |
+// |  ESC |  *  |  7  |  8  |  9  |  +  |   |     |     |  UP |     |     | BSPC |
+// | DEL  |  /  |  4  |  5  |  6  |  -  |   |     | LFT |DOWN | RGT |     |   '  |
+// |   =  |  0  |  1  |  2  |  3  |  .  |   |  _  |     |  ,  |  .  |  /  |  GUI |
 //                   | CTRL| LYR0 | ENT |   | SPC | LYR2 | ALT |
                         bindings = <
-   &kp ESC         &kp KP_MULTIPLY  &kp N7   &kp N8    &kp N9    &kp PLUS    &bt BT_NXT     &trans     &kp UP      &trans        &trans     &kp BSPC
-   &kp DEL         &kp FSLH         &kp N4   &kp N5    &kp N6    &kp MINUS   &bt BT_CLR     &kp LEFT   &kp DOWN    &kp RIGHT     &trans     &trans
-   &kp EQUAL       &kp N0           &kp N1   &kp N2    &kp N3    &kp DOT     &kp F1         &kp F2     &kp F3      &kp F4        &kp F5     &kp RET
-                          	           &kp LCTRL  &to 0    &kp RET        &kp SPACE  &to 2   &kp RALT
+   &kp ESC         &kp KP_MULTIPLY  &kp N7   &kp N8     &kp N9    &kp PLUS       &none       &none      &kp UP      &none         &none      &kp BSPC
+   &kp DEL         &kp FSLH         &kp N4   &kp N5     &kp N6    &kp MINUS      &none       &kp LEFT   &kp DOWN    &kp RIGHT     &none      &kp SQT
+   &kp EQUAL       &kp N0           &kp N1   &kp N2     &kp N3    &kp DOT        &kp UNDER   &none      &kp COMMA   &kp DOT       &kp FSLH   &kp LGUI
+                          	                 &kp LCTRL  &to 0     &kp RET        &kp SPACE   &to 2      &kp RALT
                         >;
                 };
 
                 raise_layer {
 // -----------------------------------------------------------------------------------------
-// |  ESC |  !  |  @  |  #  |  $  |  %  |   |  ^  |  &  |  *  |  (  |  )  | BSPC |
-// | TAB  |     |     |     |     |  G  |   |  -  |  =  |  [  |  ]  |  \  |  `   |
-// | SHFT |     |     |     | GUI |     |   |  _  |  +  |  {  |  }  | "|" |  ~   |
+// |  ESC |     |  &  |  *  |  (  |  )  |   | BT1 | BT2 | BT3 | BT4 | BT5 | BSPC |
+// | TAB  |     |  $  |  %  |  ^  |  [  |   |  -  |     |     |     | BTC |  '   |
+// | SHFT | "|" |  !  |  @  |  #  |  ]  |   |  _  |     |     |     |     |  GUI |
 //                   | CTRL| LYR1 | ENT |   | SPC |  LYR0 | ALT |
                         bindings = <
-   &kp  ESC  &kp EXCL &kp AT &kp HASH &kp DLLR &kp PRCNT   &kp CARET &kp AMPS  &kp KP_MULTIPLY &kp LPAR &kp RPAR &kp BSPC
-   &kp TAB   &trans   &trans &trans   &trans   &kp G      &kp MINUS &kp EQUAL &kp LBKT        &kp RBKT &kp BSLH &kp GRAVE
-   &kp LSHFT &trans   &trans &trans   &kp LEFT_WIN  &trans      &kp UNDER &kp PLUS  &kp LBRC        &kp RBRC &kp PIPE &kp TILDE
-                    	     &kp LCTRL &to 1   &kp RET   &kp SPACE   &to 0    &kp RALT
+   &kp TAB    &none     &kp AMPS   &kp STAR    &kp LPAR   &kp RPAR   &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2   &bt BT_SEL 3   &bt BT_SEL 4    &kp BSPC
+   &kp CAPS   &none     &kp DOLLAR &kp PRCNT   &kp CARET  &kp LBKT   &kp MINUS     &none         &none          &none          &bt BT_CLR      &kp SQT
+   &kp LSHFT  &kp PIPE  &kp EXCL   &kp AT      &kp HASH   &kp RBKT   &kp UNDER     &none         &none          &none          &none           &kp LGUI
+                    	             &kp LCTRL   &to 1      &kp RET    &kp SPACE     &to 0         &kp RALT
                         >;
                 };
         };
